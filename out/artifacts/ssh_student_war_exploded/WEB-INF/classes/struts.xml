@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- struts为配置文件根元素-->
+<struts>
+
+    <constant name="struts.i18n.encoding" value="gb2312"></constant>
+    <!-- Action必须放在指定的包名空间中-->
+    <package name="struts2" extends="struts-default">
+        <action name="showAll" class="showAllAction">
+            <!-- 定义处理结果与视图资源之间的关系-->
+            <result name="success">/showAll.jsp</result>
+            <result name="error">/errorpage.jsp</result>
+        </action>
+
+        <action name="delete" class="deleteAction">
+            <!-- 定义处理结果与视图资源之间的关系-->
+            <result name="success" type="redirect">showAll.action </result>
+        </action>
+
+        <action name="add" class="addAction">
+            <!-- 定义处理结果与视图资源之间的关系-->
+            <result name="success" type="redirect">/userlogin.jsp </result>
+            <result name="input"  >/add.jsp</result>
+        </action>
+
+        <action name="update" class="updateAction">
+            <!-- 定义处理结果与视图资源之间的关系-->
+            <result name="success" type="redirect">/userinfo.jsp</result>
+            <result name="input">/update.jsp</result>
+        </action>
+
+        <action name="admin" class="adminAction">
+            <result name="success" type="redirect">showAll.action</result>
+            <result name="input">/adminlogin.jsp</result>
+        </action>
+
+        <action name="userlogin" class="userLoginAction">
+            <result name="success">/userinfo.jsp</result>
+            <result name="input">/userlogin.jsp</result>
+        </action>
+
+        <action name="searchBook" class="searchBookAction">
+            <result name="success">/userinfo.jsp</result>
+            <result name="error">/errorpage.jsp</result>
+        </action>
+    </package>
+</struts>
+
